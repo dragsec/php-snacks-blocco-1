@@ -53,7 +53,45 @@ $posts = [
 </head>
 <body>
     
+    <ul>
+        <?php
+        $keysMap = array_keys($posts);
 
+        var_dump($keysMap);
+
+        for ($i = 0; $i < count($posts); $i++){
+            $key  = $keysMap[$i];
+
+            /* var_dump($i, $key); */
+
+            $value = $posts[$key];
+
+            echo "<li>" . $key;
+            echo "<ul>";
+
+            for($y = 0; $y < count($value); $y++){
+                $post = $value[$y];
+                /* var_dump($y, $post); */
+
+                echo "<li>";
+
+                echo "<p>" . $post["title"] . "</p>";
+                echo $post["author"] . "<br>";
+                echo $post["text"];
+                    
+                echo "</li>";
+
+            }
+
+            echo "</ul>";
+            echo "</li>";
+
+        }
+    
+
+        ?>
+    
+    </ul>
 
 </body>
 </html>
